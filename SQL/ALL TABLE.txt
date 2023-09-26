@@ -164,5 +164,5 @@ CREATE TABLE tblTiebreaker(
 
     FOREIGN KEY (tournamentId, matchID) REFERENCES tblMatch(tournamentId, matchID),
     FOREIGN KEY (team1_deptCode) REFERENCES tblDept(deptCode),
-    FOREIGN KEY (team2_deptCode) REFERENCES tblDept(deptCode),
+    FOREIGN KEY (team2_deptCode) REFERENCES tblDept(deptCode)
 );
