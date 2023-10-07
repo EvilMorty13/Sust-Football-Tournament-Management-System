@@ -1,3 +1,10 @@
+CREATE TABLE tblOperator(
+    email varchar(50),
+    password varchar(50),
+
+    PRIMARY KEY(email)
+);
+
 CREATE TABLE tblDept (
     deptCode int,
     deptName varchar(40),
