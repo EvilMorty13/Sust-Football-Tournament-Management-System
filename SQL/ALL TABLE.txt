@@ -28,6 +28,7 @@ CREATE TABLE tblPlayer(
      playerSemester int,
      playerName varchar(50),
      playerDeptCode int,
+     playerJerseyNo int,
 
     PRIMARY KEY(playerRegNo),
 
@@ -128,6 +129,50 @@ CREATE TABLE tblMatch (
     FOREIGN KEY (matchLineman2ID) REFERENCES tblReferee(refereeID),
     FOREIGN KEY (matchFourthRefereeID) REFERENCES tblReferee(refereeID),
     FOREIGN KEY (tournamentId) REFERENCES tblTournament(tournamentId)
+);
+
+CREATE TABLE tblPlaying11(
+    tournamentId varchar(60),
+
+    matchID varchar(20),
+    teamDeptCode int,
+
+    startingPlayer1RegNo int,
+    startingPlayer2RegNo int,
+    startingPlayer3RegNo int,
+    startingPlayer4RegNo int,
+    startingPlayer5RegNo int,
+    startingPlayer6RegNo int,
+    startingPlayer7RegNo int,
+    startingPlayer8RegNo int,
+    startingPlayer9RegNo int,
+    startingPlayer10RegNo int,
+    startingPlayer11RegNo int,
+
+    substitutePlayer1RegNo int,
+    substitutedPlayer1RegNo int,
+    substitutePlayer2RegNo int,
+    substitutedPlayer2RegNo int,
+    substitutePlayer3RegNo int,
+    substitutedPlayer3RegNo int,
+
+
+    PRIMARY KEY (tournamentId, matchID, teamDeptCode),
+
+    FOREIGN KEY (tournamentId, matchID) REFERENCES tblMatch(tournamentId, matchID),
+    FOREIGN KEY (teamDeptCode) REFERENCES tblTeam(deptCode),
+
+    FOREIGN KEY (startingPlayer1RegNo) REFERENCES tblPlayer(playerRegNo),
+    FOREIGN KEY (startingPlayer2RegNo) REFERENCES tblPlayer(playerRegNo),
+    FOREIGN KEY (startingPlayer3RegNo) REFERENCES tblPlayer(playerRegNo),
+    FOREIGN KEY (startingPlayer4RegNo) REFERENCES tblPlayer(playerRegNo),
+    FOREIGN KEY (startingPlayer5RegNo) REFERENCES tblPlayer(playerRegNo),
+    FOREIGN KEY (startingPlayer6RegNo) REFERENCES tblPlayer(playerRegNo),
+    FOREIGN KEY (startingPlayer7RegNo) REFERENCES tblPlayer(playerRegNo),
+    FOREIGN KEY (startingPlayer8RegNo) REFERENCES tblPlayer(playerRegNo),
+    FOREIGN KEY (startingPlayer9RegNo) REFERENCES tblPlayer(playerRegNo),
+    FOREIGN KEY (startingPlayer10RegNo) REFERENCES tblPlayer(playerRegNo),
+    FOREIGN KEY (startingPlayer11RegNo) REFERENCES tblPlayer(playerRegNo)
 );
 
 CREATE TABLE tblIndividualPunishment (
